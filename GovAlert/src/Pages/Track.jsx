@@ -8,7 +8,7 @@ const Track = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await axios.get('http://localhost:5002/api/reports'); // Adjust URL if needed
+        const response = await axios.get('http://localhost:5003/api/reports'); 
         setReports(response.data); // Store the fetched reports in state
       } catch (error) {
         console.error('Error fetching reports:', error);
@@ -17,7 +17,7 @@ const Track = () => {
     };
 
     fetchReports();
-  }, []); // Empty dependency array to run only once when the component mounts
+  }, []);
   return (
     <>
       {/* Top Navigation Bar - Full Width */}

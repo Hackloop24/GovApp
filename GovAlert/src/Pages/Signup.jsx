@@ -10,7 +10,8 @@ function Signup() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/register', { username, email, password }) // Send username instead of name
+        axios.post('http://localhost:5003/register', { username, email, password }) // Send username instead of name
+        //check this and change to 3001
             .then(result => {
                 console.log(result);
                 alert("Sign-up successful!");

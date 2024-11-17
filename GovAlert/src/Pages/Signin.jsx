@@ -10,11 +10,16 @@ function Signin() {
   const handleSignIn = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3001/login", { email: username, password })
+      .post("http://localhost:5003/login", { email: username, password })
       .then((result) => {
         console.log(result);
         if (result.data.message === "login successful") {
           navigate("/homeIn");
+          // this code will be executed if the login is successful
+          const onlyName = username.split("@")[0];
+          const CapsName= onlyName.charAt(0).toUpperCase() + onlyName.slice(1);
+          alert(`Welcome back ${CapsName}`);
+          //here this will print the username
         } else {
           alert("No user found");
         }
