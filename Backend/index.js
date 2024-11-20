@@ -13,13 +13,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Get the current directory name from __dirname equivalent in ES modules
+//
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Connect to MongoDB
-mongoose
-  .connect(
+
+mongoose.connect(
     'mongodb+srv://prajwalinna1905:mJXlPo4EStDg0GPF@cluster0.hvl16.mongodb.net/information?retryWrites=true&w=majority&appName=Cluster0'
   )
   .then(() => console.log('Connected to MongoDB'))

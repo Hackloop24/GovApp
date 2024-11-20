@@ -9,6 +9,10 @@ function Home() {
     window.location.reload();
     alert("You are now on the Home page/Main page");
   };
+  function prohibit(){
+    alert("Login/signUp to submit a report");
+    
+  }
 
   return (
     <div className="bg-gray-900 text-gray-200 min-h-screen w-full flex flex-col">
@@ -22,9 +26,10 @@ function Home() {
           >
             <i className="fa fa-home"></i><span>Home</span>
           </a>
-          <Link to="/report" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
-            <i className="fa fa-flag"></i><span>Report</span>
-          </Link>
+          <Link className="flex items-center space-x-1 text-gray-300 hover:text-blue-400" onClick={prohibit}>
+          <i className="fa fa-flag"></i><span>Report</span>
+           </Link>
+
           <a href="#phone" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-phone"></i><span>Contact</span>
           </a>
@@ -63,8 +68,8 @@ function Home() {
           Facilitating communication between citizens and local governments. Report community issues directly and track their progress.
         </p>
 
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-2 lg:px-16 xl:px-24 2xl:px-32">
-          <a href="/report" className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-2 lg:px-16 xl:px-24 2xl:px-32 "onClick={prohibit}>
+          <a href="" className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
             <i className="fas fa-bullhorn text-blue-400 text-3xl mb-4"></i>
             <h3 className="text-xl font-semibold text-blue-300 mb-2">Report Issues</h3>
             <p className="text-gray-400 text-base text-center">
