@@ -3,42 +3,27 @@ import ReportModel from './models/ReportModel.js';
 
 const router = express.Router();
 // create a new report
-router.post('/', async (req, res) => {
+router.post('/create', async (req, res) => {
   //try with /report 
   //goback with / only if not worked (intially it was /)
-  const {
-    description,
-    state,
-    district,
-    taluk,
-    municipal,
-    pincode,
-    proof
-  } = req.body;  //request the data
-
-  try {
-    // new report document
-    const newReport = new ReportModel({
-      description, 
-      state,
-      district,
-      taluk,
-      municipal,
-      pincode,
-      proof,
-    });
-
-    //save report to the database
+  try{
+    const newReport = new ReportModel(req.body);
     await newReport.save();
-
-    // Respond with the created report
-    res.status(201).json({
+    res.status(201).send({
       message: 'Report submitted successfully',
-      report: newReport,
+      report: newReport,});
+      }catch (error) {
+        console.error('Error submitting report:', error);
+        res.status(500).send({ message: 'Error submitting report', error });
+      }
     });
+router.get('/', async (req, res) => {
+  try {
+    const reports = await ReportModel.find();
+    res.status(200).json(reports);
   } catch (error) {
-    console.error('Error submitting report:', error);
-    res.status(500).json({ message: 'Error submitting report', error });
+    console.error('Error fetching reports:', error);
+    res.status(500).json({ message: 'Error fetching reports', error });
   }
 });
 

@@ -8,7 +8,7 @@ const Track = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await axios.get('http://localhost:5003/api/reports'); 
+        const response = await axios.get('http://localhost:5003/api/reports'); // Fetch reports from the backend
         setReports(response.data); // Store the fetched reports in state
       } catch (error) {
         console.error('Error fetching reports:', error);
@@ -16,8 +16,9 @@ const Track = () => {
       }
     };
 
-    fetchReports();
-  }, []);
+    fetchReports(); // Call the function to fetch reports on component mount
+  }, []); // Empty array means this effect runs once when the component mounts
+
   return (
     <>
       {/* Top Navigation Bar - Full Width */}
@@ -57,19 +58,19 @@ const Track = () => {
                       <div className="flex mb-2 items-center justify-between">
                         <span className="text-sm font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
                           {/* Example progress percentage - you can adjust this based on your report data */}
-                          60%
+                          {report.progress || 'N/A'}% {/* Assuming `progress` is a field in your report */}
                         </span>
                       </div>
                       <div className="flex mb-2 items-center justify-between">
                         <span className="text-sm font-semibold inline-block py-1 px-2 uppercase rounded-full text-orange-600 bg-orange-200">
-                          Pending
+                          Pending {/* Customize this depending on report's status */}
                         </span>
                       </div>
                       <div className="flex mb-2">
                         <div className="w-full bg-gray-300 rounded-full">
                           <div
                             className="bg-teal-500 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full"
-                            style={{ width: '60%' }}
+                            style={{ width: `${report.progress || 0}%` }} // Use dynamic progress width
                           ></div>
                         </div>
                       </div>
@@ -79,13 +80,17 @@ const Track = () => {
                   {/* Status Updates */}
                   <h5 className="text-lg font-semibold text-blue-300 mb-2">Status Updates:</h5>
                   <ul className="text-gray-400 list-inside list-decimal">
-                    {report.statusUpdates.map((update, index) => (
-                      <li key={index}>{update}</li>
-                    ))}
+                    {report.statusUpdates && report.statusUpdates.length > 0 ? (
+                      report.statusUpdates.map((update, index) => (
+                        <li key={index}>{update}</li>
+                      ))
+                    ) : (
+                      <p>No updates available.</p>
+                    )}
                   </ul>
 
                   <p className="text-gray-400 mt-4">
-                    Next step: <span className="text-teal-400 font-semibold">Government Review</span>
+                    Next step: <span className="text-teal-400 font-semibold">Government Review</span> {/* This can be dynamic based on the report */}
                   </p>
                 </div>
               ))
