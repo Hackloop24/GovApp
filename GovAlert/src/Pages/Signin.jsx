@@ -3,30 +3,37 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Signin() {
-  const [username, setUsername] = useState(""); 
+  const [email, setEmail] = useState(""); // Changed from username to email
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSignIn = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:5003/login", { email: username, password })
+      .post("http://localhost:5003/login", { email, password }) // Changed to match backend
       .then((result) => {
-        console.log(result);
-        if (result.data.message === "login successful") {
+        console.log('Login response:', result.data); // Debug log
+        if (result.data.message === 'Login successful') { // Updated to match backend response
+          const username = email.split("@")[0];
+          const capsName = username.charAt(0).toUpperCase() + username.slice(1);
+          alert(`Welcome back ${capsName}`);
           navigate("/homeIn");
-          // this code will be executed if the login is successful
-          const onlyName = username.split("@")[0];
-          const CapsName= onlyName.charAt(0).toUpperCase() + onlyName.slice(1);
-          alert(`Welcome back ${CapsName}`);
-          //here this will print the username
         } else {
-          alert("No user found");
+          alert(result.data.message || "Login failed");
         }
       })
       .catch((err) => {
-        console.error(err);
-        alert("An error occurred during login."); 
+        console.error('Login error:', err);
+        if (err.response) {
+          // Server responded with an error
+          alert(err.response.data.message || "Invalid email or password");
+        } else if (err.request) {
+          // Request made but no response
+          alert("Cannot connect to server. Please try again.");
+        } else {
+          // Other errors
+          alert("An error occurred during login.");
+        }
       });
   };
 
@@ -59,16 +66,16 @@ function Signin() {
           <h2 className="text-2xl font-bold mb-6 text-center text-blue-400">Sign In</h2>
           <form onSubmit={handleSignIn}>
             <div className="mb-4">
-              <label htmlFor="username" className="block text-gray-300">Email</label>
+              <label htmlFor="email" className="block text-gray-300">Email</label>
               <input
                 type="email"
-                id="username"
-                name="username"
+                id="email"
+                name="email"
                 placeholder="Email"
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-gray-300 bg-gray-900"
                 required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="mb-4">

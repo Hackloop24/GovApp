@@ -19,7 +19,8 @@ function Signup() {
             })
             .catch(err => {
                 console.error(err);
-                alert("Error occurred during sign-up");
+                //alert("Error occurred during sign-up");
+                alert(err.message);
             });
     };
 

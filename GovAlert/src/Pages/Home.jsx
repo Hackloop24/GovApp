@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';  
-import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+// import { useNavigate } from "react-router-dom";
+// import axios from 'axios';
 
 function Home() {
   const reloadPage = (event) => {
@@ -10,10 +10,8 @@ function Home() {
     alert("You are now on the Home page/Main page");
   };
   function prohibit(){
-    alert("Login/signUp to submit a report");
-    
+    alert("Login/signUp to submit a report"); 
   }
-
   return (
     <div className="bg-gray-900 text-gray-200 min-h-screen w-full flex flex-col">
       {/* Top Navigation Bar */}
