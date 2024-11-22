@@ -10,7 +10,7 @@ function Home() {
     alert("You are now on the Home page/Main page");
   };
   function prohibit(){
-    alert("Login/signUp to submit a report"); 
+    alert("Login/signUp is necessary"); 
   }
   return (
     <div className="bg-gray-900 text-gray-200 min-h-screen w-full flex flex-col">
@@ -91,11 +91,11 @@ function Home() {
             </p>
           </div>
 
-          <a href="/track" className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
+          <a href="#" className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
             <i className="fas fa-tasks text-blue-400 text-3xl mb-4"></i>
             <h3 className="text-xl font-semibold text-blue-300 mb-2">Track Progress</h3>
             <p className="text-gray-400 text-base text-center">
-              Users can track the progress of their reports, fostering engagement and trust.
+              You can track the compliants received by the portal from different people and check the status of the same.
             </p>
           </a>
 

@@ -21,6 +21,8 @@ const __dirname = path.dirname(__filename);
 mongoose.connect(
   'mongodb+srv://prajwalinna1905:mJXlPo4EStDg0GPF@cluster0.hvl16.mongodb.net/information?retryWrites=true&w=majority&appName=Cluster0'
 )
+//directly in main module
+//should have been in .env folder
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
@@ -51,9 +53,9 @@ app.post('/login', async (req, res) => {
 
 app.post('/register', async (req, res) => {
   try {
-    console.log('Received registration data:', req.body);
-
-    const { username, email, password } = req.body;
+    // try the below line to get the data in the terminal
+    // console.log('Received registration data:', req.body);
+    // const { username, email, password } = req.body;
 
     const existingUser = await InfoModel.findOne({ email });
     if (existingUser) {
