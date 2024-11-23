@@ -3,100 +3,92 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function Signup() {
-    const [username, setUsername] = useState(''); // Changed from name to username for clarity
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        axios.post('http://localhost:5003/register', { username, email, password }) // Send username instead of name
-        //check this and change to 3001
-            .then(result => {
-                console.log(result);
-                alert("Sign-up successful!");
-                navigate('/homeIn'); // Navigate to homeIn after successful signup
-            })
-            .catch(err => {
-                console.error(err);
-                //alert("Error occurred during sign-up");
-                alert(err.message);
-            });
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    return (
-        <>
-            {/* Top Navigation Bar - Full Width */}
-            <nav className="w-screen bg-gray-800 px-6 py-4 shadow-lg">
-                <div className="flex justify-start">
-                    <a href="/home" className="text-gray-300 hover:text-blue-400 mr-8">Home</a>
-                    <a href="/report" className="text-gray-300 hover:text-blue-400 mr-8">Report</a>
-                    <a href="/" className="text-gray-300 hover:text-blue-400 mr-8">Contact</a>
-                    <a href="#help" className="text-gray-300 hover:text-blue-400 mr-8">Help</a>
-                    <a href="#about" className="text-gray-300 hover:text-blue-400">About Us</a>
-                </div>
-            </nav>
+    try {
+      const response = await axios.post('http://localhost:5003/register', {
+        username,
+        email,
+        password,
+      });
 
-            {/* Main Content */}
-            <div className="min-h-screen bg-gray-900 flex flex-col">
-                <main className="flex-grow flex items-center justify-center p-4">
-                    <div className="bg-gray-800 p-4 shadow-lg rounded-lg w-full max-w-md">
-                        <h2 className="text-2xl font-bold mb-6 text-center text-gray-200">Create an Account</h2>
-                        <form onSubmit={handleSubmit}>
-                            <div className="mb-4">
-                                <label htmlFor="email" className="block text-gray-300">Email</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-gray-300 bg-gray-900"
-                                    required
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
-                            </div>
-                            <div className="mb-4">
-                                <label htmlFor="username" className="block text-gray-300">Username</label>
-                                <input
-                                    type="text"
-                                    id="username"
-                                    name="username"
-                                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-gray-300 bg-gray-900"
-                                    required
-                                    onChange={(e) => setUsername(e.target.value)} // Update state for username
-                                />
-                            </div>
-                            <div className="mb-6">
-                                <label htmlFor="password" className="block text-gray-300">Password</label>
-                                <input
-                                    type="password"
-                                    id="password"
-                                    name="password"
-                                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-gray-300 bg-gray-900"
-                                    required
-                                    onChange={(e) => setPassword(e.target.value)}
-                                />
-                            </div>
-                            <button
-                                type="submit"
-                                className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
-                            >
-                                Sign Up
-                            </button>
-                        </form>
-                        <p className="mt-4 text-center text-gray-400">
-                            Already have an account?
-                            <a onClick={() => navigate('/login')} className="text-blue-600 hover:underline ml-1">Sign In</a> {/* Updated to use navigate */}
-                        </p>
-                    </div>
-                </main>
+      alert(response.data.message);
+      navigate('/homeIn');
+    } catch (error) {
+      console.error(error.response?.data || error.message);
+      alert(error.response?.data?.error || 'An error occurred during sign-up.');
+    }
+  };
 
-                {/* Footer - Full Width */}
-                <footer className="w-screen bg-gray-800 py-4 text-gray-400 text-center">
-                    &copy; 2024 Grievance Redressal Platform. All Rights Reserved.
-                </footer>
-            </div>
-        </>
-    );
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-900">
+      <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h2 className="text-2xl font-bold text-gray-200 text-center">Sign Up</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="username" className="block text-gray-300">
+              Username
+            </label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full px-3 py-2 text-gray-300 bg-gray-900 rounded-lg focus:ring-2 focus:ring-blue-600"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-gray-300">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-3 py-2 text-gray-300 bg-gray-900 rounded-lg focus:ring-2 focus:ring-blue-600"
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="password" className="block text-gray-300">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-3 py-2 text-gray-300 bg-gray-900 rounded-lg focus:ring-2 focus:ring-blue-600"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          >
+            Sign Up
+          </button>
+        </form>
+        <p className="mt-4 text-center text-gray-400">
+          Already have an account?{' '}
+          <a
+            onClick={() => navigate('/login')}
+            className="text-blue-500 hover:underline"
+          >
+            Log In
+          </a>
+        </p>
+      </div>
+    </div>
+  );
 }
 
 export default Signup;

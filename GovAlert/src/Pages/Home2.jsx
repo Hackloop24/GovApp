@@ -9,7 +9,6 @@ function Home2() {
     navigate("/home");  // go to the Home page after logout
     alert("Logged out Successfully");
   };
-
   return (
     <div className="bg-gray-900 text-gray-200 min-h-screen w-full flex flex-col">
       {/* Top Navigation Bar */}
@@ -90,13 +89,21 @@ function Home2() {
             </p>
           </a>
 
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
-            <i className="fas fa-users text-blue-400 text-3xl mb-4"></i>
-            <h3 className="text-xl font-semibold text-blue-300 mb-2">Community Engagement</h3>
-            <p className="text-gray-400 text-base text-center">
-              Encourage community involvement and collaboration to address local issues.
-            </p>
-          </div>
+          <a 
+  href="http://localhost:4000" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="block"
+>
+  <div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
+    <i className="fas fa-users text-blue-400 text-3xl mb-4"></i>
+    <h3 className="text-xl font-semibold text-blue-300 mb-2">Community Engagement</h3>
+    <p className="text-gray-400 text-base text-center">
+      Encourage community involvement and collaboration to address local issues.
+    </p>
+  </div>
+</a>
+
 
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
             <i className="fas fa-shield-alt text-blue-400 text-3xl mb-4"></i>
