@@ -1,3 +1,4 @@
+//the env file is avoided and it is hardcoaded for easy access 
 Backend always on port number 5003
 GovAlert always on port number 5110
 Community_portal always on port number 4000
