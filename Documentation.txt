@@ -1,0 +1,11 @@
+Backend always on port number 5003
+GovAlert always on port number 5110
+Community_portal always on port number 4000
+
+suppose any port is not free then what?
+ 1)netstat -ano | findstr :<Port_NUmber>
+ eg:  netstat -ano | findstr :5003
+ this will give some PID number
+ then write this
+2)taskkill /PID <PID_NO> /F
+  eg: taskkill /PID 27844 /F

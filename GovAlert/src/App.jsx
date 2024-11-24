@@ -8,6 +8,7 @@ import Track from './Pages/track';
 import Report from './Pages/report';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home2 from './Pages/Home2';
+import Fund from './Pages/Fund';
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,7 @@ function App() {
         <Route path="/track" element={<Track />} />
         <Route path="/home" element={<Home />} />
         <Route path="/homeIn" element={<Home2 />} />
+        <Route path="/fund" element={<Fund/>} />
       </Routes>
     </BrowserRouter>
   );

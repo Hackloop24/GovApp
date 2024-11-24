@@ -35,9 +35,9 @@ const Track = () => {
       <div className="min-h-screen bg-gray-900 text-gray-200">
         {/* Track Progress Section */}
         <section className="container mx-auto px-4 py-16 text-center">
-          <h2 className="text-4xl font-bold text-blue-400 mb-4">Track Your Report Progress</h2>
+          <h2 className="text-4xl font-bold text-blue-400 mb-4">View Report Progress</h2>
           <p className="text-gray-400 mb-12">
-            Easily track the status and progress of your submitted reports.
+            Easily track the status and progress of submitted reports.
           </p>
 
           {error && <p className="text-red-500">{error}</p>} {/* Display error message if any */}
@@ -49,7 +49,7 @@ const Track = () => {
                 <div key={report._id} className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300">
                   <h4 className="text-xl font-semibold text-blue-300 mb-2">Report #{report.queryNumber}</h4>
                   <p className="text-gray-400 mb-2">Submitted: {new Date(report.createdAt).toLocaleDateString()}</p>
-                  <p className="text-gray-400 mb-4">Last Updated: {new Date(report.updatedAt).toLocaleDateString()}</p>
+                  {/* <p className="text-gray-400 mb-4">Last Updated: {new Date(report.updatedAt).toLocaleDateString()}</p> */}
 
                   {/* Progress Bar */}
                   <div className="mb-4">

@@ -14,19 +14,22 @@ function Home2() {
       {/* Top Navigation Bar */}
       <nav className="bg-gray-800 p-4 shadow-lg flex justify-between items-center w-full sticky top-0 z-50">
         <div className="flex items-center space-x-4">
-          <a href="/home" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
+          <a href="/homeIn" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-home"></i><span>Home</span>
           </a>
           <a href="/report" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-flag"></i><span>Report</span>
           </a>
-          <a href="#phone" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
+          <a href="/fund" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
+            <i className="fa fa-flag"></i><span>Allocated Funds</span>
+          </a>
+          {/* <a href="#phone" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-phone"></i><span>Contact</span>
           </a>
           <a href="#help" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
-            <i className="fa fa-question-circle"></i><span>Help</span>
-          </a>
-          <a href="#about" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
+            <i className="fa fa-question-circle"></i><span>Help</span> 
+          </a>*/}
+          <a href="http://localhost:4000/about" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-info-circle"></i><span>About Us</span>
           </a>
         </div>
@@ -69,7 +72,7 @@ function Home2() {
             <i className="fas fa-map-marker-alt text-blue-400 text-3xl mb-4"></i>
             <h3 className="text-xl font-semibold text-blue-300 mb-2">Map Issues</h3>
             <p className="text-gray-400 text-base text-center">
-              View reported issues on a map to enhance visibility for local governments.
+              View reported issues on a map and trace the issues.
             </p>
           </div>
 
@@ -77,20 +80,20 @@ function Home2() {
             <i className="fas fa-comments text-blue-400 text-3xl mb-4"></i>
             <h3 className="text-xl font-semibold text-blue-300 mb-2">Government Response</h3>
             <p className="text-gray-400 text-base text-center">
-              Local government officials can respond to reports and update their status.
-            </p>
+              View Government response to reported issues.</p>
           </div>
 
           <a href="/track" className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
             <i className="fas fa-tasks text-blue-400 text-3xl mb-4"></i>
-            <h3 className="text-xl font-semibold text-blue-300 mb-2">Track Progress</h3>
+            <h3 className="text-xl font-semibold text-blue-300 mb-2">View Reports and Progress</h3>
             <p className="text-gray-400 text-base text-center">
-              Users can track the progress of their reports, fostering engagement and trust.
+              Users can track the progress of the reports submitted on the portal.
             </p>
           </a>
 
           <a 
-  href="http://localhost:4000" 
+  // href="http://localhost:4000" 
+  href='http://localhost:4000'
   target="_blank" 
   rel="noopener noreferrer" 
   className="block"
@@ -99,7 +102,7 @@ function Home2() {
     <i className="fas fa-users text-blue-400 text-3xl mb-4"></i>
     <h3 className="text-xl font-semibold text-blue-300 mb-2">Community Engagement</h3>
     <p className="text-gray-400 text-base text-center">
-      Encourage community involvement and collaboration to address local issues.
+      Community chat for discussion of problems and possibe solutions.
     </p>
   </div>
 </a>
@@ -109,7 +112,7 @@ function Home2() {
             <i className="fas fa-shield-alt text-blue-400 text-3xl mb-4"></i>
             <h3 className="text-xl font-semibold text-blue-300 mb-2">Transparency</h3>
             <p className="text-gray-400 text-base text-center">
-              Ensure transparency and accountability in local government operations.
+            GovAlert provides transparent accessibility to all users.
             </p>
           </div>
         </div>

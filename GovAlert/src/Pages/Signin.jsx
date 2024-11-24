@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import welcome from "../assets/welcome.jpg";
 
 function Signin() {
   const [email, setEmail] = useState(""); // Changed from username to email
@@ -38,7 +39,16 @@ function Signin() {
   };
 
   return (
-    <div className="bg-gray-900 text-gray-200 flex flex-col min-h-screen w-screen h-screen overflow-hidden">
+    <div
+    style={{
+      backgroundImage: `url(${welcome})`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      height: "100vh",
+    }}
+    className="flex items-center justify-center bg-opacity-90"
+  >
+    <div className=" text-gray-200 flex flex-col min-h-screen w-screen h-screen overflow-hidden">
       {/* Top Navigation Bar */}
       <nav className="bg-gray-800 p-4 shadow-lg flex justify-between items-center sticky top-0 z-50 w-full">
         <div className="flex items-center space-x-8">
@@ -48,13 +58,13 @@ function Signin() {
           <a href="/report" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-flag"></i><span>Report</span>
           </a>
-          <a href="#phone" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
+          {/* <a href="#phone" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-phone"></i><span>Contact</span>
           </a>
           <a href="#help" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
-            <i className="fa fa-question-circle"></i><span>Help</span>
-          </a>
-          <a href="#about" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
+            <i className="fa fa-question-circle"></i><span>Help</span> 
+          </a>*/}
+          <a href="http://localhost:4000/about" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-info-circle"></i><span>About Us</span>
           </a>
         </div>
@@ -114,6 +124,7 @@ function Signin() {
       <footer className="text-center py-4 bg-gray-800 text-gray-400 w-full">
         &copy; 2024 GovAlert. All Rights Reserved.
       </footer>
+    </div>
     </div>
   );
 }

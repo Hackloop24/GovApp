@@ -78,8 +78,8 @@ const Report = () => {
       {/* Navigation */}
       <nav className="bg-gray-800 p-4 shadow-lg flex justify-between items-center sticky top-0 z-50 w-full">
         <div className="flex items-center space-x-8">
-          <a href="/" className="text-gray-300 hover:text-blue-400">Home</a>
-          <a href="/report" className="text-gray-300 hover:text-blue-400">Report</a>
+          <a href="/homeIn" className="text-gray-300 hover:text-blue-400">Home</a>
+          {/* <a href="/report" className="text-gray-300 hover:text-blue-400">Report</a> */}
         </div>
       </nav>
 

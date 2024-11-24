@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function Home() {
+
+  function Home() {
   const reloadPage = (event) => {
     event.preventDefault();
     window.location.reload();
     alert("You are now on the Home page/Main page");
   };
+  const ruko=()=>{
+    alert("You need to login or register first!");
+  }
 
   return (
     <div className="bg-gray-900 text-gray-200 min-h-screen w-full flex flex-col">
@@ -20,16 +24,16 @@ function Home() {
           >
             <i className="fa fa-home"></i><span>Home</span>
           </a>
-          <Link to="/report" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
+          <Link to="#" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400" onClick={ruko}>
             <i className="fa fa-flag"></i><span>Report</span>
           </Link>
-          <a href="#phone" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
+          {/* <a href="#phone" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-phone"></i><span>Contact</span>
           </a>
           <a href="#help" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-question-circle"></i><span>Help</span>
-          </a>
-          <a href="#about" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
+          </a> */}
+          <a href="http://localhost:4000/about" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-info-circle"></i><span>About Us</span>
           </a>
         </div>
@@ -62,7 +66,7 @@ function Home() {
         </p>
 
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-2 lg:px-16 xl:px-24 2xl:px-32">
-          <a href="/report" className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
+          <a href="/#" className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center"onClick={ruko}>
             <i className="fas fa-bullhorn text-blue-400 text-3xl mb-4"></i>
             <h3 className="text-xl font-semibold text-blue-300 mb-2">Report Issues</h3>
             <p className="text-gray-400 text-base text-center">
@@ -70,15 +74,15 @@ function Home() {
             </p>
           </a>
 
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center" onClick={ruko}>
             <i className="fas fa-map-marker-alt text-blue-400 text-3xl mb-4"></i>
             <h3 className="text-xl font-semibold text-blue-300 mb-2">Map Issues</h3>
             <p className="text-gray-400 text-base text-center">
-              View reported issues on a map to enhance visibility for local governments.
+            View reported issues on a map and trace the issues.
             </p>
           </div>
 
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center" onClick={ruko}>
             <i className="fas fa-comments text-blue-400 text-3xl mb-4"></i>
             <h3 className="text-xl font-semibold text-blue-300 mb-2">Government Response</h3>
             <p className="text-gray-400 text-base text-center">
@@ -86,26 +90,26 @@ function Home() {
             </p>
           </div>
 
-          <a href="/track" className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
+          <a href="#" className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center" onClick={ruko}>
             <i className="fas fa-tasks text-blue-400 text-3xl mb-4"></i>
-            <h3 className="text-xl font-semibold text-blue-300 mb-2">Track Progress</h3>
+            <h3 className="text-xl font-semibold text-blue-300 mb-2">View Reports and Progress</h3>
             <p className="text-gray-400 text-base text-center">
-              Users can track the progress of their reports, fostering engagement and trust.
+            Users can track the progress of the reports submitted on the portal.
             </p>
           </a>
-          <a href="http://localhost:4000/" className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
+          <a href="http://localhost:4000" className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
             <i className="fas fa-tasks text-blue-400 text-3xl mb-4"></i>
             <h3 className="text-xl font-semibold text-blue-300 mb-2">Community Engagement</h3>
             <p className="text-gray-400 text-base text-center">
-            Encourage community involvement and collaboration to address local issues.
+            Community chat for discussion of problems and possibe solutions.
             </p>
           </a>
 
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center">
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300 flex flex-col items-center"onClick={ruko}>
             <i className="fas fa-shield-alt text-blue-400 text-3xl mb-4"></i>
             <h3 className="text-xl font-semibold text-blue-300 mb-2">Transparency</h3>
             <p className="text-gray-400 text-base text-center">
-              Ensure transparency and accountability in local government operations.
+            GovAlert provides transparent accessibility to all users.
             </p>
           </div>
         </div>
