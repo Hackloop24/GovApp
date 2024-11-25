@@ -1,3 +1,4 @@
+//the env file is avoided and it is hardcoaded for easy access 
 Backend always on port number 5003
 GovAlert always on port number 5110
 Community_portal always on port number 4000
@@ -9,3 +10,25 @@ suppose any port is not free then what?
  then write this
 2)taskkill /PID <PID_NO> /F
   eg: taskkill /PID 27844 /F
+
+#clone this project to your directory
+Steps to run the program
+1)Navigate to the backend folder in terminal 
+2)Then need to install the dependencies by running the cammand
+  npm install
+3)To start the backend run the command
+  node index.js
+This will run the backend folder and the 5003 port should be intialized and also in console it will log MongoDB connected.
+4)Split terminal or open new terminal and navigare to GovAlert and then to Community_chat:
+  Now we need to install the dependencies by giving command:
+  npm install 
+5)Now give command 
+  npm run dev
+This will run on the localhost 4000
+7)Open new terminal and then navigate to GovAlert folder
+  then run the command :
+    npm run dev
+8)Now it will run on localhost 5110
+  Click on this link now using ctrl+click
+  Thois will open on your default browser.
+All set now you can signup and use the platform 
