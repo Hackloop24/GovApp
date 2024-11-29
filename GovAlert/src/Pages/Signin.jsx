@@ -37,7 +37,10 @@ function Signin() {
         }
       });
   };
-
+function report() {
+  alert("Login First");
+  
+}
   return (
     <div
     style={{
@@ -55,8 +58,8 @@ function Signin() {
           <a href="/" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-home"></i><span>Home</span>
           </a>
-          <a href="/report" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
-            <i className="fa fa-flag"></i><span>Report</span>
+          <a href="#" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
+            <i className="fa fa-flag"></i><span onClick={report}>Report</span>
           </a>
           {/* <a href="#phone" className="flex items-center space-x-1 text-gray-300 hover:text-blue-400">
             <i className="fa fa-phone"></i><span>Contact</span>
